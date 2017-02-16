@@ -1,5 +1,7 @@
 # Quizz
-Un jeu en java ou l'on peut créer son propre quizz et s'y confronter.     
+
+### Introduction
+Ce projet implémenté en java est un jeu où l'on peut créer son propre quizz et s'y confronter.     
 
 On peut sauvegarder les quizz qu'on a réaliser pour les modifier ulterieurement ou permettre à une autre personne de s'y confronter.
 Les quizz sont sur un certain nombre de points et chaque question peut gérer les points d'une manière différente.
