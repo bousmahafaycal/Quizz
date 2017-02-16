@@ -1,4 +1,4 @@
-public abstract class Reponse { 
+public abstract class Reponse {
 	
 
 	//public  boolean bonneReponse(Reponse reponseUser);

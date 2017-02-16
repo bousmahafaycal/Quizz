@@ -42,14 +42,10 @@ public class InterfaceJouer{
 				System.out.println("Merci de bien voulour prendre un choix valable");
 			}
 			else {
-				if (! ba.constitueQuizz(b)){
-
+				if (! ba.constitueQuizz(b))
 					System.out.println("Il est impossible de créer un quizz à "+b+" points. Merci de bien vouloir essayer avec un autre nombre de points.");
-				}
-				else {
-					System.out.println("Continuer  = false");
+				else 
 					continuer = false;
-				}
 			}
 
 			
@@ -98,9 +94,6 @@ public class InterfaceJouer{
 		}
 	}
 
-
- 	// A FAIRE POUR QUE CA MARCHE
- 	// AJOUTER DEUX VARIABLES POUR RECUPERER LE NOMBRE DE REPONSES ET DE BONNES REPONSES
 	public static  void jouer(Quizz a){
 		int nbPoints = 0, nbPointsTotal = 0;
 		boolean rep = false;
@@ -171,7 +164,7 @@ public class InterfaceJouer{
 			}
 			for (int i2 = 0; i2 < a.liste.get(i).getReponse().getTabReponse().length; i2++)
 				System.out.println("Réponse attendue n°"+(i2+1)+"/"+a.liste.get(i).getReponse().nbReponses()+" : "+a.liste.get(i).getReponse().getTabReponse()[i2]);
-			nbPointsTotal +=  liste.get(i).points.calculPoints(liste.get(i).reponse.nbReponses());;
+			nbPointsTotal +=  a.liste.get(i).points;
 			System.out.println("Nombre de points : "+nbPoints+"/"+nbPointsTotal);
 			System.out.println("--------------------------");
 			System.out.println();

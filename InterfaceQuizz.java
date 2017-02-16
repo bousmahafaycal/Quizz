@@ -51,9 +51,47 @@ public class InterfaceQuizz  { // un peu équivalent à FabriqueQuizzInteractive
 		String question = Outils.getString();
 		System.out.println("Donnez la réponse à cet énnonce : ");
 		String reponse = Outils.getString();
-		int tentative = getTentative();
-		Points points = getPoints();
-		boolean c = getCasse();
+		int tentative = 0;
+		boolean continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de tentative : ");
+			tentative = Outils.getInt();
+			if (tentative > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de tentatives positif.");
+			}
+		}
+		int points = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de points pour cette question : ");
+			points = Outils.getInt();
+			if (points > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de points positif.");
+			}
+		}
+
+		boolean c = false;
+		continuer = true;
+		while (continuer){
+			String [] tab = {"1 - La casse doit être respectée.","2 - La casse n'a pas besoin d'être respectée."};
+			int casse = Interface.menu("Choissiez si la réponse doit prendre en compte la casse : ",tab,false);
+			
+			if (casse == 1){
+				continuer=false;
+				c = true;
+			}
+			else if (casse == 2){
+				continuer = false;
+				c = false;
+			}
+			else {
+				System.out.println("Merci de choisir un choix possible.");
+			}
+		}
 
 		ReponseString rep = new ReponseString(reponse,c);
 		QuestionSimple quest = new QuestionSimple(question,rep,points,tentative);
@@ -83,11 +121,67 @@ public class InterfaceQuizz  { // un peu équivalent à FabriqueQuizzInteractive
 			 reponse[i] = Outils.getString();
 		}
 			
-		int tentative = getTentative();
-		Points  points = getPoints();
-		boolean c = getCasse();
-		boolean o = getOrdre();
-		
+		int tentative = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de tentatives autorisé pour cette question : ");
+			tentative = Outils.getInt();
+			if (tentative > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de tentative positive.");
+			}
+		}
+
+		int points = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de points pour cette question : ");
+			points = Outils.getInt();
+			if (points > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de points positif.");
+			}
+		}
+
+		boolean c = true;
+		continuer = true;
+		while (continuer){
+			String [] tab = {"1 - La casse doit être respectée.","2 - La casse n'a pas besoin d'être respectée."};
+			int casse = Interface.menu("Choissiez si la réponse doit prendre en compte la casse : ",tab, false);
+			
+			if (casse == 1){
+				continuer=false;
+				c = true;
+			}
+			else if (casse == 2){
+				continuer = false;
+				c = false;
+			}
+			else {
+				System.out.println("Merci de choisir un choix possible.");
+			}
+		}
+
+		boolean o = true;
+		continuer = true;
+		while (continuer){
+			String [] tab = {"1 - L'ordre doit être respectée.","2 - L'ordre n'a pas besoin d'être respectée."};
+			int ordre = Interface.menu("Choissiez si la réponse doit prendre en compte la casse : ",tab,false);
+			
+			if (ordre == 1){
+				continuer=false;
+				o = true;
+			}
+			else if (ordre == 2){
+				continuer = false;
+				o = false;
+			}
+			else {
+				System.out.println("Merci de choisir un choix possible.");
+			}
+		}
 
 		ReponseStringMultiple rep = new ReponseStringMultiple(reponse,o, c);
 		QuestionMultiple quest = new QuestionMultiple(question,rep,points,tentative);
@@ -116,21 +210,8 @@ public class InterfaceQuizz  { // un peu équivalent à FabriqueQuizzInteractive
 		}
 
 		
-		int tentative = getTentative();
-		int tolerance = getTolerance();
-		Points points = getPoints();
-		boolean o = getOrdre();
-
-		
-		ReponseEntierMultiple rep = new ReponseEntierMultiple(reponse,tolerance,o);
-		QuestionEntierMultiple quest = new QuestionEntierMultiple(question,rep,points,tentative);
-		q.addQuestion(quest);
-		
-	}
-
-	public static int getTentative(){
 		int tentative = 0;
-		boolean continuer = true;
+		continuer = true;
 		while (continuer){
 			System.out.println("Donnez le nombre de tentatives autorisé pour cette question : ");
 			tentative = Outils.getInt();
@@ -141,13 +222,20 @@ public class InterfaceQuizz  { // un peu équivalent à FabriqueQuizzInteractive
 			}
 		}
 
-		return tentative;
+		int points = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de points pour cette question : ");
+			points = Outils.getInt();
+			if (points > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de points positif.");
+			}
+		}
 
-	}
-
-	public static int getTolerance(){
 		int tolerance = 0;
-		boolean continuer = true;
+		continuer = true;
 		while (continuer){
 			System.out.println("Donnez la tolérance pour cette question : ");
 			tolerance = Outils.getInt();
@@ -157,34 +245,9 @@ public class InterfaceQuizz  { // un peu équivalent à FabriqueQuizzInteractive
 				System.out.println("Merci de donner une tolérance positive.");
 			}
 		}
-		return tolerance;
-	}
 
-	public static boolean getCasse(){
-		boolean c = true;
-		boolean continuer = true;
-		while (continuer){
-			String [] tab = {"1 - La casse doit être respectée.","2 - La casse n'a pas besoin d'être respectée."};
-			int casse = Interface.menu("Choissiez si la réponse doit prendre en compte la casse : ",tab, false);
-			
-			if (casse == 1){
-				continuer=false;
-				c = true;
-			}
-			else if (casse == 2){
-				continuer = false;
-				c = false;
-			}
-			else {
-				System.out.println("Merci de choisir un choix possible.");
-			}
-		}
-		return c;
-	}
-
-	public static boolean getOrdre(){
 		boolean o = true;
-		boolean continuer = true;
+		continuer = true;
 		while (continuer){
 			String [] tab = {"1 - L'ordre doit être respectée.","2 - L'ordre n'a pas besoin d'être respectée."};
 			int ordre = Interface.menu("Choissiez si la réponse doit prendre en compte la casse : ",tab, false);
@@ -201,80 +264,14 @@ public class InterfaceQuizz  { // un peu équivalent à FabriqueQuizzInteractive
 				System.out.println("Merci de choisir un choix possible.");
 			}
 		}
-		return o;
-	}
 
-	public static Points getPoints(){
-		int points = 0;
-		boolean continuer = true;
-		while (continuer){
-			System.out.println("Donnez le bonus de points si toutes les réponses sont bonnes pour cette question : ");
-			points = Outils.getInt();
-			if (points >= 0)
-				continuer=false;
-			else {
-				System.out.println("Il est impossible de donner un nombre de points négatif, merci de bien vouloir recommencer.");
-			}
-		}
-
-		int pointsBonneReponse = 0;
-		continuer = true;
-		while (continuer){
-			System.out.println("Donnez le nombre de points gagné par bonne réponse : ");
-			pointsBonneReponse = Outils.getInt();
-			if (pointsBonneReponse >= 0)
-				continuer=false;
-			else {
-				System.out.println("Il est impossible de donner un nombre de points gagné par bonne réponse négatif, merci de bien vouloir recommencer.");
-			}
-		}
-
-		int pointsMauvaiseReponse = 0;
-		continuer = true;
-		while (continuer){
-			System.out.println("Donnez le nombre de points perdu par mauvaise réponse : ");
-			pointsMauvaiseReponse = Outils.getInt();
-			if (pointsMauvaiseReponse >= 0)
-				continuer=false;
-			else {
-				System.out.println("Il est impossible de donner un nombre de points perdu par mauvaise réponse négatif, merci de bien vouloir recommencer.");
-			}
-		}
-
-		int malus = 0;
-		continuer = true;
-		while (continuer){
-			System.out.println("Donnez le malus de points si toutes les réponses sont fausses : ");
-			malus = Outils.getInt();
-			if (malus >= 0)
-				continuer=false;
-			else {
-				System.out.println("Il est impossible de donner un malus négatif, merci de bien vouloir recommencer.");
-			}
-		}
-
-		boolean o = true;
-		continuer = true;
-		while (continuer){
-			String [] tab = {"1 - L'utilisateur peut avoir un nombre de points négatif pour cette question.",
-			"2 - L'utilisateur ne peut pas avoir un nombre de points négatif pour cette question."};
-			int ordre = Interface.menu("Choissiez si l'utilisateur peut avoir un nombre de points négatif pour cette question : ",tab, false);
-			
-			if (ordre == 1){
-				continuer=false;
-				o = true;
-			}
-			else if (ordre == 2){
-				continuer = false;
-				o = false;
-			}
-			else {
-				System.out.println("Merci de choisir un choix possible.");
-			}
-		}
 		
-		Points p = new Points(points,pointsBonneReponse,pointsMauvaiseReponse,malus,o);
+		ReponseEntierMultiple rep = new ReponseEntierMultiple(reponse,tolerance,o);
+		QuestionEntierMultiple quest = new QuestionEntierMultiple(question,rep,points,tentative);
+		q.addQuestion(quest);
+		
 	}
+
 
 	public static void ajouterQuestionEntier(Quizz q){
 		System.out.println("Donnez l'énnoncé de la question : ");
@@ -283,11 +280,43 @@ public class InterfaceQuizz  { // un peu équivalent à FabriqueQuizzInteractive
 		int reponse = Outils.getInt();
 		
 
-		Points points = getPoints();
+		int points = 0;
+		boolean continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de points pour cette question : ");
+			points = Outils.getInt();
+			if (points > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de points positif.");
+			}
+		}
 
-		int tentative = getTentative();
+		int tentative = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de tentatives autorisé pour cette question : ");
+			tentative = Outils.getInt();
+			if (tentative > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de tentative positive.");
+			}
+		}
 
-		int tolerance = getTolerance();
+		int tolerance = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez la tolérance pour cette question : ");
+			tolerance = Outils.getInt();
+			if (tolerance >= 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner une tolérance positive.");
+			}
+		}
+		
+
 		
 		ReponseEntier rep = new ReponseEntier(reponse,tolerance);
 		QuestionEntier quest = new QuestionEntier(question,rep,points,tentative);

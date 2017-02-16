@@ -2,14 +2,14 @@ public class QuestionEntierMultiple extends Question {
 	ReponseEntierMultiple reponse;
 
 	public QuestionEntierMultiple(String question, ReponseEntierMultiple reponse){
-		this(question,reponse,new Points(5));
+		this(question,reponse,5);
 	}
 
-	public QuestionEntierMultiple(String question, ReponseEntierMultiple reponse, Points points){
+	public QuestionEntierMultiple(String question, ReponseEntierMultiple reponse, int points){
 		this(question,reponse,points, 1);
 	}
 
-	public QuestionEntierMultiple(String question, ReponseEntierMultiple reponse, Points points, int tentative){
+	public QuestionEntierMultiple(String question, ReponseEntierMultiple reponse, int points, int tentative){
 		super(question, points,tentative);
 		this.reponse = reponse;
 	}

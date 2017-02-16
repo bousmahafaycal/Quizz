@@ -63,13 +63,7 @@ public class BanqueAleatoire extends Quizz{
 		//System.out.println("quizzPossibles : "+quizzPossibles.size());
 		//System.out.println("q.size "+q.getNbPoints());
 		Random rand = new Random();
-		if (quizzPossibles.size() != 0){
-			q = quizzPossibles.get(rand.nextInt(quizzPossibles.size()));
-		}
-		else {
-			return false;
-		}
-		
+		q = quizzPossibles.get(rand.nextInt(quizzPossibles.size()));
 		//System.out.println("q.size "+q.getNbPoints());
 		//System.out.println("Ennonce : "+q.liste.get(0).question);
 		return true;

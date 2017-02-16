@@ -2,14 +2,14 @@ public  class QuestionSimple extends Question{
 	ReponseString reponse ;
 
 	public QuestionSimple(String question, ReponseString reponse){
-		this(question,reponse,new Points(5));
+		this(question,reponse,5);
 	}
 
-	public QuestionSimple(String question,  ReponseString reponse, Points points){
+	public QuestionSimple(String question,  ReponseString reponse, int points){
 		this(question,reponse,points,1);
 	}
 
-	public QuestionSimple(String question,  ReponseString reponse, Points points, int tentative){
+	public QuestionSimple(String question,  ReponseString reponse, int points, int tentative){
 		super(question, points, tentative);
 		this.reponse = reponse;
 	}

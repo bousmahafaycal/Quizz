@@ -2,14 +2,14 @@ public class QuestionEntier extends Question {
 	ReponseEntier  reponse;
 
 	public QuestionEntier(String question, ReponseEntier reponse){
-		this(question,reponse,new Points(5));
+		this(question,reponse,5);
 	}
 
-	public QuestionEntier (String question, ReponseEntier reponse, Points points){
+	public QuestionEntier (String question, ReponseEntier reponse, int points){
 		this(question, reponse,points,1);
 	}
 
-	public QuestionEntier (String question, ReponseEntier reponse, Points points, int tentative){
+	public QuestionEntier (String question, ReponseEntier reponse, int points, int tentative){
 		super(question, points, tentative);
 		this.reponse = reponse;
 	}

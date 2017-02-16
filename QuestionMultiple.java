@@ -4,13 +4,13 @@ public  class QuestionMultiple extends Question{
 	ReponseStringMultiple reponse; 
 
 	public QuestionMultiple(String question, ReponseStringMultiple reponse){
-		this(question,reponse,new Points(5));
+		this(question,reponse,5);
 	}
 
-	public QuestionMultiple(String question,  ReponseStringMultiple reponse, Points points){
+	public QuestionMultiple(String question,  ReponseStringMultiple reponse, int points){
 		this(question,reponse,points,1);
 	}
-	public QuestionMultiple(String question,  ReponseStringMultiple reponse, Points points,int tentative){
+	public QuestionMultiple(String question,  ReponseStringMultiple reponse, int points,int tentative){
 		super(question, points,tentative);
 		this.reponse = reponse;
 	}

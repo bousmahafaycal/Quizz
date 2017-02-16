@@ -1,15 +1,14 @@
 public abstract class Question  {
-	int  tentative;
-	Points points;
+	int points, tentative;
 	String question;
 
 	public Question(String question){
 		this(question,5);
 	}
-	public Question(String question, Points points){
+	public Question(String question, int points){
 		this(question,points,1);
 	}
-	public Question(String question, Points points, int tentative){
+	public Question(String question, int points, int tentative){
 		this.question = question;
 		this.points = points;
 		this.tentative = tentative;
@@ -30,11 +29,11 @@ public abstract class Question  {
 		String chainePoints = Outils.recupereBaliseAuto(chaine,"Points", 1, "Points", false);
 		question = Outils.recupereBaliseAuto(chaine,"Ennonce",1,"Ennonce",false);
 		tentative = Integer.parseInt(Outils.recupereBaliseAuto(chaine,"Tentative",1,"Tentative",false));
-		points = points.lireSauvegarde(chainePoints);
+		points = Integer.parseInt(chainePoints);
 	}
 
 	public String sauvegardeQuestion(){
-		String chaine = "<Points>"+points.sauvegardePoints()+"</Points><Ennonce>"+question+"</Ennonce>"+Outils.constitueBalise("Tentative",String.valueOf(tentative));
+		String chaine = "<Points>"+points+"</Points><Ennonce>"+question+"</Ennonce>"+Outils.constitueBalise("Tentative",String.valueOf(tentative));
 		return chaine;
 	}
 }

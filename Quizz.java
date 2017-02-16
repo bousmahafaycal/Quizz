@@ -21,7 +21,7 @@ public class Quizz {
 	public int getNbPoints(){
 		int nb = 0;
 		for (int i = 0; i < liste.size(); i++)
-			nb += liste.get(i).points.calculPoints(liste.get(i).reponse.nbReponses());
+			nb += liste.get(i).points;
 		return nb;
 	}
 

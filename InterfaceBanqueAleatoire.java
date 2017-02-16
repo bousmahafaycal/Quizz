@@ -50,10 +50,47 @@ public class InterfaceBanqueAleatoire{
 		String question = Outils.getString();
 		System.out.println("Donnez la réponse à cet énnonce : ");
 		String reponse = Outils.getString();
-		int tentative = InterfaceQuizz.getTentative();
-		int points = InterfaceQuizz.getPoints();
+		int tentative = 0;
+		boolean continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de tentative : ");
+			tentative = Outils.getInt();
+			if (tentative > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de tentatives positif.");
+			}
+		}
+		int points = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de points pour cette question : ");
+			points = Outils.getInt();
+			if (points > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de points positif.");
+			}
+		}
 
-		boolean c = InterfaceQuizz.getCasse();
+		boolean c = false;
+		continuer = true;
+		while (continuer){
+			String [] tab = {"1 - La casse doit être respectée.","2 - La casse n'a pas besoin d'être respectée."};
+			int casse = Interface.menu("Choissiez si la réponse doit prendre en compte la casse : ",tab,false);
+			
+			if (casse == 1){
+				continuer=false;
+				c = true;
+			}
+			else if (casse == 2){
+				continuer = false;
+				c = false;
+			}
+			else {
+				System.out.println("Merci de choisir un choix possible.");
+			}
+		}
 
 		ReponseString rep = new ReponseString(reponse,c);
 		QuestionSimple quest = new QuestionSimple(question,rep,points,tentative);
@@ -83,13 +120,67 @@ public class InterfaceBanqueAleatoire{
 			 reponse[i] = Outils.getString();
 		}
 			
-		int tentative = InterfaceQuizz.getTentative();
+		int tentative = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de tentatives autorisé pour cette question : ");
+			tentative = Outils.getInt();
+			if (tentative > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de tentative positive.");
+			}
+		}
 
-		int points = InterfaceQuizz.getPoints();
+		int points = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de points pour cette question : ");
+			points = Outils.getInt();
+			if (points > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de points positif.");
+			}
+		}
 
-		boolean c = InterfaceQuizz.getCasse();
+		boolean c = true;
+		continuer = true;
+		while (continuer){
+			String [] tab = {"1 - La casse doit être respectée.","2 - La casse n'a pas besoin d'être respectée."};
+			int casse = Interface.menu("Choissiez si la réponse doit prendre en compte la casse : ",tab, false);
+			
+			if (casse == 1){
+				continuer=false;
+				c = true;
+			}
+			else if (casse == 2){
+				continuer = false;
+				c = false;
+			}
+			else {
+				System.out.println("Merci de choisir un choix possible.");
+			}
+		}
 
-		boolean o = InterfaceQuizz.getOrdre();
+		boolean o = true;
+		continuer = true;
+		while (continuer){
+			String [] tab = {"1 - L'ordre doit être respectée.","2 - L'ordre n'a pas besoin d'être respectée."};
+			int ordre = Interface.menu("Choissiez si la réponse doit prendre en compte la casse : ",tab,false);
+			
+			if (ordre == 1){
+				continuer=false;
+				o = true;
+			}
+			else if (ordre == 2){
+				continuer = false;
+				o = false;
+			}
+			else {
+				System.out.println("Merci de choisir un choix possible.");
+			}
+		}
 
 		ReponseStringMultiple rep = new ReponseStringMultiple(reponse,o, c);
 		QuestionMultiple quest = new QuestionMultiple(question,rep,points,tentative);
@@ -118,13 +209,60 @@ public class InterfaceBanqueAleatoire{
 		}
 
 		
-		int tentative = InterfaceQuizz.getTentative();
+		int tentative = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de tentatives autorisé pour cette question : ");
+			tentative = Outils.getInt();
+			if (tentative > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de tentative positive.");
+			}
+		}
 
-		int points = InterfaceQuizz.getPoints();
+		int points = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de points pour cette question : ");
+			points = Outils.getInt();
+			if (points > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de points positif.");
+			}
+		}
 
-		int tolerance = InterfaceQuizz.getTolerance();
+		int tolerance = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez la tolérance pour cette question : ");
+			tolerance = Outils.getInt();
+			if (tolerance >= 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner une tolérance positive.");
+			}
+		}
 
-		boolean o = InterfaceQuizz.getOrdre();
+		boolean o = true;
+		continuer = true;
+		while (continuer){
+			String [] tab = {"1 - L'ordre doit être respectée.","2 - L'ordre n'a pas besoin d'être respectée."};
+			int ordre = Interface.menu("Choissiez si la réponse doit prendre en compte la casse : ",tab, false);
+			
+			if (ordre == 1){
+				continuer=false;
+				o = true;
+			}
+			else if (ordre == 2){
+				continuer = false;
+				o = false;
+			}
+			else {
+				System.out.println("Merci de choisir un choix possible.");
+			}
+		}
 
 		
 		ReponseEntierMultiple rep = new ReponseEntierMultiple(reponse,tolerance,o);
@@ -141,11 +279,41 @@ public class InterfaceBanqueAleatoire{
 		int reponse = Outils.getInt();
 		
 
-		int points = InterfaceQuizz.getPoints();
+		int points = 0;
+		boolean continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de points pour cette question : ");
+			points = Outils.getInt();
+			if (points > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de points positif.");
+			}
+		}
 
-		int tentative = InterfaceQuizz.getTentative();
+		int tentative = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez le nombre de tentatives autorisé pour cette question : ");
+			tentative = Outils.getInt();
+			if (tentative > 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner un nombre de tentative positive.");
+			}
+		}
 
-		int tolerance = InterfaceQuizz.getTolerance();
+		int tolerance = 0;
+		continuer = true;
+		while (continuer){
+			System.out.println("Donnez la tolérance pour cette question : ");
+			tolerance = Outils.getInt();
+			if (tolerance >= 0)
+				continuer=false;
+			else {
+				System.out.println("Merci de donner une tolérance positive.");
+			}
+		}
 		
 
 		
